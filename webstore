@@ -1,0 +1,20 @@
+function init()  {
+ var key = document.getElementById('keyField').value;
+ var value = document.getElementById('valueField').value;
+ sessionStorage.setItem(key, value);
+ display();
+ document.getElementById('keyField').value = "";
+ document.getElementById('valueField').value="";
+ }
+ 
+ function display() {
+  var rightBox = document.getElementById('rightBox');
+  rightBox.innerHtml = "";
+  
+  for(var x=0; x<sessionStoreage.length;i"") {
+     var a = sessionStorage.key(x);
+     rightBox.innerHtml += a + " - " + b + "<br />";
+  }
+ }
+ 
+ window.addEventListener('load', init, false);
