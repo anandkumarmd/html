@@ -1,0 +1,44 @@
+//https://www.youtube.com/watch?v=e6t-8EoT2HM
+function init() {
+ var mypic = document.getElementById('testpic');
+ mypic.addEventListener('dragStart', startDrag, false);
+ mypic.addEventListener('dragEnd', endDrag, false);
+ 
+ leftbox = document.getElementById('leftbox');
+ leftbox.addEventListener('dragenter', dragEnter, false);
+ leftbox.addEventListener('dragleave', dragEnter, false);
+ leftbox.addEventListener('dragover', function(e){e.preventDefault();}, false);
+ leftbox.addEventListener('drop',dropped, false);
+}
+
+function dragStart() {
+  var code = '<img src="images/myface.png">;
+  e.dataTransfer.setData('Text', code);
+}
+
+function dragEnd(e) {
+  pic = e.target;
+  pic.setVisibilt(false);
+}
+
+function dragEnter(e) {
+  e.preventDefault();//each browser has a default behaviour
+  leftbox.style.background = 'Sky blue';
+  leftbox.style.border = "3px solid red";
+}
+
+function dragLeave(e) {
+  e.preventDefault();//each browser has a default behaviour
+  leftbox.style.background = 'white';
+  leftbox.style.border = "3px solid blue";
+}
+
+function dragOver() {
+}
+
+function drop(e) {
+  e.preventDefault();
+  leftbox.innerHtml = e.dataTransfer.getData('Text');
+}
+
+window.addEventListener("load", init, false);
