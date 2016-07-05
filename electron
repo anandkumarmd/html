@@ -1,5 +1,6 @@
 1.compile with webpack to ./electronbuild/app folder
 2.move main.js and package.json from ./electroncfg to ./electronbuild/app folder
+3. create ./electronbuild/build folder with icon.ico file (256x256px)
 
 main.js
 ------
@@ -102,3 +103,4 @@ package.json
 
 4. a> npm install
    b> npm run dist
+builds a dist folder with 1> ./dist/win-unpack and 2> ./dist/win/xxxsetup.exe   
