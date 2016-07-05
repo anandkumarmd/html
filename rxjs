@@ -27,6 +27,11 @@ const observer = {
 const unsub = myObservable(observer);
 setTimeout(unsub, 100);//cancel subscription
 -------------------------------------------------------------
+https://egghead.io/lessons/rxjs-reactive-programming-what-is-rxjs
+var arr = ['1', '2', '4', '5', 'foo', '8', 'bar', '8'];
+var result = arr.map(x => parseInt(x)).filter(x => !isNaN(x)).reduce((x,y) => x + y);
+
+--------------------------------------------------------------
 1.define observables (what to observer) w/ next, error, onecomplete callbacks
 2.next subscribe (cold) or publish(hot)
 
