@@ -1,0 +1,32 @@
+RxJS = Observables + Operators + Schedulers."
+-asynchronous multiple (return) value  (async, eventbased, timehandling, filter, aggregate)
+
+generator(iterator) -> observable[data/events](start scheduler) -> (map,buffer,where)concurrency(throttle,interval,delay)  ->publish (notify scheduler) 
+*dispose (end observable)
+
+https://www.sitepoint.com/functional-reactive-programming-rxjs/
+
+observables(producers)  -> (operators + schedulers)notifies -> observers(consumers)
+Hot observables are pushing even when we are not subscribed to them (e.g., UI events).
+Cold observables start pushing only when we subscribe. They start over if we subscribe again.
+
+------ funda/basic ------ https://egghead.io/lessons/rxjs-creating-observable-from-scratch ---------------
+function myObservable(observer) {//observer as arg for observable
+  const id = setTimeout(() => { //asynch
+    for(int i=0;i<10;i++)
+      observer.next("hello::"+i);
+    observer.complete();
+  }, 500); //delay start
+  return () => { console.log("disposed"); clearTimeout(id);} //return cancel func
+}
+const observer = { 
+  next(value) { console.log('next='+value),
+  error(err) {},
+  complete() { console.log('complete');}
+};
+const unsub = myObservable(observer);
+setTimeout(unsub, 100);//cancel subscription
+-------------------------------------------------------------
+1.define observables (what to observer) w/ next, error, onecomplete callbacks
+2.next subscribe (cold) or publish(hot)
+
