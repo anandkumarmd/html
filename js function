@@ -22,8 +22,27 @@ function Person(firstName, lastName) {
   this.lastName = lastName;
 }
 var friend1 = new Person("John", "Haha");
+
+//add a new method
 Person.prototype.getName = function() {
   return firstName+"::"+lastName;
+}
+//add another function fields
+function Animal(countryName) {
+    this.countryName = countryName;
+}
+friend1.prototype = new Animal('NewZealand');
+
+//above as class
+class Person extends Animal { //extends is prototype inhertiance
+    constructor(firstName, lastName) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+    
+    getName() {
+        return firstName + "::"+ lastName;
+    }
 }
 
 
