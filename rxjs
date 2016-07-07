@@ -5,6 +5,8 @@ generator(iterator) -> observable[data/events](start scheduler) -> (map,buffer,w
 *dispose (end observable)
 
 https://www.sitepoint.com/functional-reactive-programming-rxjs/
+https://xgrommx.github.io/rx-book/index.html
+https://egghead.io/technologies/rx
 
 observables(producers)  -> (operators + schedulers)notifies -> observers(consumers)
 Hot observables are pushing even when we are not subscribed to them (e.g., UI events).
